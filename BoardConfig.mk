@@ -41,3 +41,7 @@ TARGET_POWERHAL_VARIANT := qcom
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+
+# TWRP
+TW_THEME := portrait_hdpi
+PRODUCT_COPY_FILES += device/motorola/osprey/twrp.fstab:recovery/root/etc/twrp.fstab

@@ -1,0 +1,35 @@
+#  TWRP FSTAB for osprey.
+
+#  Copyright (C) 2016 Sindastra <https://github.com/sindastra>
+#  All rights reserved.
+
+#  The above copyright notice shall be included in
+#  all copies or substantial portions of the Software.
+
+#  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+#  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+#  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+#  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+#  CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+#  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+#  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+
+# MOUNT POINT	FILE SYSTEM	DEVICE				FLAGS
+
+# Probably safe to mount:
+/system		ext4	/dev/block/bootdevice/by-name/system
+/data		auto	/dev/block/bootdevice/by-name/userdata
+/cache		ext4	/dev/block/bootdevice/by-name/cache	flags=storage
+/boot		emmc	/dev/block/bootdevice/by-name/boot
+/recovery	emmc	/dev/block/bootdevice/by-name/recovery
+
+# Possibly unsafe to mount:
+#/fsg		ext4	/dev/block/bootdevice/by-name/fsg
+#/firmware	ext4	/dev/block/bootdevice/by-name/modem
+#/persist	ext4	/dev/block/bootdevice/by-name/persist
+
+# External SD card
+/sdcard		auto	/dev/block/mmcblk1p1		flags=removable;storage
+
+# Todo: Add USB OTG
+#/usbotg	auto	?	flags=removable;storage
